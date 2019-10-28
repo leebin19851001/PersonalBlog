@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人博客</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/axios.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="" class="title"><pre>我的个人博客 | 技术博客</pre>></a>
+            <ul class="menu">
+                <li><a href="/">首页</a></li>
+                <li><a href="/siteMap.html">地图</a></li>
+                <li><a href="/about.html">关于</a></li>
+                <li><a href="/guestbook.html">留言</a></li>
+            </ul>
+
+            <div class="search_bar" id="search_bar">
+                <input type="text" v-model:id="searchWord" placeholder="请输入关键词查找">
+                <button v-on:click="search()">搜索</button>
+            </div>
+        </div>
+    </header>
+    <div class="content">
+        <div class="content_left">
+            <div class="every_day" id="every_day">
+                <span>每日一句</span>
+                <p v-html="getContent">asdfasdfasdfasdfasdf aaadfasdffa </p>
+                <p>----------df aaadfasdffa </p>
+            </div>
+            <div class="atricle_list" id="article_list">
+                <div class="atricle" v-for="article in articleList">
+                    <a v-bind:href="article.link" class="article_title">{{ article.title }}</a>
+                    <p class="article_content">
+                        {{ article.content }}
+                    </p>
+                    <div class="article_foot">
+                        发布于{{ article.date }} |  浏览({{article.views }}) | Tags：{{article.tags}}
+                    </div>
+                </div>
+                <div class="page_tool">
+                    <ul>
+                        <li v-for="pageNum in pageNumList" v-on:click="jumpTo(pageNum.page)" v-bind:class="{now_page:(pageNum.text == page)}">{{pageNum.text}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="content_right">
+            <div class="right_module" id="random_tags">
+                <div>随机标签云</div>
+                <a v-for="tag in tags" v-bind:style="{color:randomColor(), fontSize:randomSize()}" v-bind:href="tag.link">{{tag.text}}</a>
+            </div>
+
+            <div class="right_module" id="new_hot">
+                <div>最近热门</div>
+                <ul>
+                    <li v-for=" item in titleList"><a v-bind:href="item.link">{{item.title}}</a></li>
+                </ul>
+            </div>
+
+            <div class="right_module" id="new_comments">
+                <div>最新评论</div>
+                <ul>
+                    <li v-for="item in commentList">
+                        <div>
+                            <span>{{item.name}}</span>
+                            <span class="pull_right">{{item.date}}</span>
+                        </div>
+                        <p>{{item.content}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="right_module">
+                <div>友情链接</div>
+                <span><a href="">aitichaguan</a></span>
+                <span><a href="">aitichaguan</a></span>
+                <span><a href="">aitichaguan</a></span>
+                <span><a href="">aitichaguan</a></span>
+                <span><a href="">aitichaguan</a></span>
+                <span><a href="">aitichaguan</a></span>
+                <span><a href="">aitichaguan</a></span>
+                <span><a href="">aitichaguan</a></span>
+                <span><a href="">aitichaguan</a></span>
+
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <ul>
+            <li>C/C++</li>
+            <li>CSS/DIV</li>
+            <li>java</li>
+            <li>javacript</li>
+            <li>Linux</li>
+            <li>Mac</li>
+            <li>cadfasdf</li>
+            <li>cadfasdf</li>
+            <li>cadfasdf</li>
+            <li>cadfasdf</li>
+            <li>cadfasdf</li>
+            <li>cadfasdf</li>
+            <li>cadfasdf</li>
+            <li>cadfasdf</li>
+        </ul>
+        <p>Copyright © 2010-2019 郑晓个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
+    </footer>
+    <script src="./js/index.js"></script>
+    <script src="./js/base.js"></script>
+    <script src="./js/search.js"></script>
+</body>
+</html>

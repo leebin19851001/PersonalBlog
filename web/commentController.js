@@ -31,6 +31,9 @@ path.set('/queryRandomCode', queryRandomCode);
 function queryCommentsByBlogId(request, response) {
     var params = url.parse(request.url, true).query;
     commentDao.queryCommentsByBlogId(parseInt(params.bid),function (result) {
+        for ( var i = 0; i < result.length; i ++) {
+            result[i].ctime = timeUtil.timestampToTime(result[i].ctime);
+        }
         response.writeHead(200);
         response.write(respUtil.writeResult('success', '获取成功', result));
         response.end();
@@ -50,6 +53,9 @@ path.set('/queryCommentsCountByBlogId', queryCommentsCountByBlogId);
 
 function queryNewComments(request, response) {
     commentDao.queryNewComments(5,function (result) {
+        for ( var i = 0; i < result.length; i ++) {
+            result[i].ctime = timeUtil.timestampToTime(result[i].ctime);
+        }
         response.writeHead(200);
         response.write(respUtil.writeResult('success', '获取成功', result));
         response.end();

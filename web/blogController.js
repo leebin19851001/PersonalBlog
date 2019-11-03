@@ -27,6 +27,7 @@ path.set('/queryAllBlog', queryAllBlog);
 function queryBlogById(request, response) {
     var params = url.parse(request.url, true).query;
     blogDao.queryBlogById(params.bid, function (result) {
+        result[0].ctime = timeUtil.timestampToTime(result[0].ctime);
         response.writeHead(200);
         response.write(respUtil.writeResult('success', '查询成功', result));
         response.end();

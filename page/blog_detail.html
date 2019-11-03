@@ -11,7 +11,7 @@
 <body>
     <header class="header">
         <div class="container">
-            <a href="" class="title"><pre>我的个人博客 | 技术博客</pre>></a>
+            <a href="/" class="title"><pre>我的个人博客 | 技术博客</pre>></a>
             <ul class="menu">
                 <li><a href="/">首页</a></li>
                 <li><a href="/siteMap.html">地图</a></li>
@@ -19,10 +19,10 @@
                 <li><a href="/guestbook.html">留言</a></li>
             </ul>
 
-            <div class="search_bar">
-                <input type="text" placeholder="请输入关键词查找">
-                <button >搜索</button>
-            </div>
+            <div class="search_bar" id="search_bar">
+                <input type="text" v-model:id="searchWord" placeholder="请输入关键词查找">
+            <button v-on:click="search()">搜索</button>
+        </div>
         </div>
     </header>
     <div class="content">

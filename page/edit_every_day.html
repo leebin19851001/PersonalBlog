@@ -58,7 +58,8 @@
                 method: 'post',
                 data: content,
                 success: function (resp) {
-                    console.log(resp);
+                    alert('添加每一句成功！');
+                    location.href = '/index.html'
                 },
                 error: function (res) {
                     console.log(res);

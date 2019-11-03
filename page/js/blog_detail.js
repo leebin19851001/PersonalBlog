@@ -1,3 +1,5 @@
+
+
 var blogDetail = new Vue({
     el: '#blog_detail',
     data : {
@@ -96,6 +98,7 @@ var sendComment = new Vue({
                     url: '/addComment?bid=' + bid + "&parent=" + reply + "&email=" + email + "&userName=" + name + "&content=" + content + "&parentName=" + replyName
                 }).then(function (res) {
                     alert("评论成功！！！");
+                    window.location.reload();
                 }).catch(function (res) {
                     console.log('请求错误')
                 });
@@ -112,13 +115,7 @@ var blogComments = new Vue({
     el: '#blog_comments',
     data: {
         total: 0,
-        commentsList: [
-            {id: '1',name: 'panda',ctime:'5446465',comments:'nihao', options:''},
-            {id: '1',name: 'panda',ctime:'5446465',comments:'nihao', options:''},
-            {id: '1',name: 'panda',ctime:'5446465',comments:'nihao', options:''},
-            {id: '1',name: 'panda',ctime:'5446465',comments:'nihao', options:''},
-            {id: '1',name: 'panda',ctime:'5446465',comments:'nihao', options:''}
-        ]
+        commentsList: []
     },
     computed: {
         reply: function () {

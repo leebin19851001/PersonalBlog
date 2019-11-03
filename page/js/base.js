@@ -60,12 +60,7 @@ var newHot = new Vue({
 var newComments = new Vue({
     el: '#new_comments',
     data: {
-        commentList:[
-            {name: '这里是用户名',date: '2018-10-01',content:'这时评论内容打发顺丰阿斯顿发=阿斯顿发阿斯顿发阿斯顿发安抚阿三发顺丰安抚啊方式'},
-            {name: '这里是用户名',date: '2018-10-01',content:'这时评论内容打发顺丰阿斯顿发=阿斯顿发阿斯顿发阿斯顿发安抚阿三发顺丰安抚啊方式'},
-            {name: '这里是用户名',date: '2018-10-01',content:'这时评论内容打发顺丰阿斯顿发=阿斯顿发阿斯顿发阿斯顿发安抚阿三发顺丰安抚啊方式'},
-            {name: '这里是用户名',date: '2018-10-01',content:'这时评论内容打发顺丰阿斯顿发=阿斯顿发阿斯顿发阿斯顿发安抚阿三发顺丰安抚啊方式'}
-        ]
+        commentList:[]
     },
     created: function () {
         axios({

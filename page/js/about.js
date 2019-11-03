@@ -2,13 +2,7 @@ var blogComments = new Vue({
     el: '#blog_comments',
     data: {
         total: 0,
-        commentsList: [
-            {id: '1',name: 'panda',ctime:'5446465',comments:'nihao', options:''},
-            {id: '1',name: 'panda',ctime:'5446465',comments:'nihao', options:''},
-            {id: '1',name: 'panda',ctime:'5446465',comments:'nihao', options:''},
-            {id: '1',name: 'panda',ctime:'5446465',comments:'nihao', options:''},
-            {id: '1',name: 'panda',ctime:'5446465',comments:'nihao', options:''}
-        ]
+        commentsList: []
     },
     computed: {
         reply: function () {

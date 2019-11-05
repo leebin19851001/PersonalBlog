@@ -5,7 +5,7 @@ function createConnetion() {
         host: '111.231.58.138',
         port: '3306',
         user: 'root',
-        password: '123456',
+        password: 'leebin@19851001',
         database: 'my_blog'
     })
 
